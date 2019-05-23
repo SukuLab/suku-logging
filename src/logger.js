@@ -5,13 +5,13 @@ const myFormat = printf(({ level, message, label, timestamp }) => {
 	return `${timestamp} [${label}] ${level}: ${message}`;
 });
 
-module.exports = function getLogger(prefix) {
+module.exports = function getLogger({prefix, version}) {
     return winston.createLogger({
         transports: [
             new winston.transports.Console({
-                level: 'info', // Log all levels except debug
+                level: 'silly',
                 format: winston.format.combine(
-                    label({ label: prefix }),
+                    label({ label: prefix + '@' + version }),
                     timestamp(),
                     colorize(),
                     myFormat
@@ -27,6 +27,7 @@ module.exports = function getLogger(prefix) {
             notice: 5,
             info: 6,
             debug: 7,
+            silly: 8
         },
     });
 } 
