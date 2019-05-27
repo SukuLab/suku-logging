@@ -5,7 +5,15 @@ const myFormat = printf(({ level, message, label, timestamp }) => {
 	return `${timestamp} [${label}] ${level}: ${message}`;
 });
 
-module.exports = function getLogger({prefix, version}) {
+var prefix;
+var version;
+
+exports.setDetails = function(_prefix, _version) {
+    prefix = _prefix;
+    version = _version;
+}
+
+exports.getLogger = function () {
     return winston.createLogger({
         transports: [
             new winston.transports.Console({
