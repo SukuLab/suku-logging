@@ -1,7 +1,5 @@
 .DS_Store
 Dockerfile
-tsconfig.json
-src/
 test/
 .nyc_output/
 log/
