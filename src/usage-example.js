@@ -2,7 +2,7 @@
 var pjson = require('../package.json');
 
 // 2) Instantiate logger instance with details from package.json
-let sukulogger = require('./logger')({ prefix : pjson.name, version : pjson.version});
+let sukulogger = require('./logger')(pjson);
 
 // 3) Create log messages anywhere in the code
 sukulogger.silly("test");

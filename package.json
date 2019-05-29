@@ -1,5 +1,5 @@
 {
-  "name": "suku-logging",
+  "name": "@suku/suku-logging",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
